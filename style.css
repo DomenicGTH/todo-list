@@ -28,12 +28,12 @@ form input, form button {
 
 form button {
     cursor: pointer; /* link indicator */
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
     color: #56433c;
 }
 
 form button:hover {
-    color: rgb(72, 3, 3) /* changes color on hover */
+    color: rgb(168, 168, 168) /* changes color on hover */
 }
 .todo {
     background-color: white;
@@ -111,4 +111,44 @@ form button:hover {
 .delete-anim {
     transform: translateY(8rem) rotateZ(20deg);
     opacity: 0; /* repostions element on the Y axis by 8rem and rotates by 20 deg */
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    /* removes all default styling of the select element */
+}
+
+.selected {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    width: 10rem;
+    color: #56433c;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.selected::after {
+    content: "\25BC"; 
+    /* this adds the arrow back from removing all default properties */
+    position: absolute;
+    background: #56433c;
+    color: white;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.selected:hover::after {
+    background-color: rgb(168, 168, 168)
 }

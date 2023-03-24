@@ -28,6 +28,15 @@
       <button class="todobtn" type="submit">
         <i class="fa-solid fa-circle-plus"></i>
       </button>
+      <div class="selected">
+        <select name="todolist" class="todo-select">
+          <!-- creates a dropdown menu> -->
+          <option value="all">All</option>
+          <!-- shift + option + down arrow copies line -->
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </form>
     <div class="container">
       <ul class="list"></ul>
