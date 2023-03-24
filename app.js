@@ -21,7 +21,7 @@ const addTodo = (e) => {
   makeli.classList.add("newtodo");
   div.appendChild(makeli); // appends makeli to div
   const buttonFinish = document.createElement("button"); // creates button
-  buttonFinish.innerText = "test"; // adds text to button
+  buttonFinish.innerText = "Complete"; // adds text to button
   buttonFinish.classList.add("buttonDone"); // adds a class of buttonDone to the buttom
   div.appendChild(buttonFinish); // appends button to div
 
@@ -36,10 +36,15 @@ const addTodo = (e) => {
 const deleteTodo = (e) => {
   e.preventDefault();
   console.log(e.target);
-  const deleteBtn = e.target; //
-  if (deleteBtn.classList[0] === "delete-btn") {
-    todoParent = deleteBtn.parentElement;
+  const item = e.target; //
+  if (item.classList[0] === "delete-btn") {
+    // classList[0] = checks first class
+    todoParent = item.parentElement;
     todoParent.remove();
+  }
+  if (item.classList[0] === "buttonDone") {
+    todoParent = item.parentElement;
+    todoParent.classList.toggle("complete");
   }
 };
 // TIME: 30:00

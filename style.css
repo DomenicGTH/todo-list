@@ -4,11 +4,56 @@
     box-sizing: border-box;
 }
 
-.todo {display: flex;
+body {
+    background-image: linear-gradient(180deg, #ec2525, #da00f9);
+    min-height: 100vh;
+    font-family: 'Signika' , sans-serif;
+}
+
+header, form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+}
+
+
+form input, form button {
+    font-family: 'Signika';
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+}
+
+form button {
+    cursor: pointer; /* link indicator */
+    transition: all 0.3 ease;
+    color: #ee3f00
+}
+
+form button:hover {
+    color: rgb(72, 3, 3)
+}
+.todo {
+    display: flex;
     gap: 30px;
-    padding: 30px;
+    justify-content: center;
 }
 
 .buttonDone {
-    width: 50px;
+    width: 100px;
+    height: 40px;
+    background-color: lime;
+    border-radius: 10px;
 }
+
+.delete-btn {
+    width: 30px;
+}
+
+/* .todobtn {
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+} */
