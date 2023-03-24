@@ -39,8 +39,12 @@ const deleteTodo = (e) => {
   const item = e.target; //
   if (item.classList[0] === "delete-btn") {
     // classList[0] = checks first class
-    todoParent = item.parentElement; // todoParent becomes the parent element of what we clicked on
-    todoParent.remove();
+    const todoParent = item.parentElement; // todoParent becomes the parent element of what we clicked on
+    todoParent.classList.add("delete-anim");
+    todoParent.addEventListener("transitionend", (e) => {
+      // will excute after transition finishes
+      todoParent.remove();
+    });
   }
   if (item.classList[0] === "buttonDone") {
     todoParent = item.parentElement;
