@@ -29,31 +29,64 @@ form input, form button {
 form button {
     cursor: pointer; /* link indicator */
     transition: all 0.3 ease;
-    color: #ee3f00
+    color: #56433c;
 }
 
 form button:hover {
-    color: rgb(72, 3, 3)
+    color: rgb(72, 3, 3) /* changes color on hover */
 }
 .todo {
+    background-color: white;
+    color: black;
     display: flex;
-    gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo li {
+    flex: 1;
+}
+
+.buttonDone, .delete-btn {
+    border: none;
+    color: #ffffff;
+    padding: 1rem;
 }
 
 .buttonDone {
-    width: 100px;
-    height: 40px;
-    background-color: lime;
-    border-radius: 10px;
+    background-color: #4cc74c
 }
 
 .delete-btn {
-    width: 30px;
+    background-color: #fd4040;
 }
 
+
+.list {
+    list-style: none;
+    min-width: 30%;
+}
 /* .todobtn {
     padding: 15px;
     border-radius: 10px;
     margin-left: 10px;
 } */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.newtodo {
+    margin: 0.1rem;
+}
+
+.list {
+    list-style: none;
+    min-width: 30%;
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+}
