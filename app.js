@@ -1,6 +1,7 @@
 const todoinput = document.querySelector(".todo");
 const todoButton = document.querySelector(".todobtn");
 const todoList = document.querySelector(".list");
+const dropDown = document.querySelector(".todo-select");
 
 // todoButton.addEventListener("click", addTodo); // calls the addTodo function
 // todoList.addEventListener("click", deleteTodo);
@@ -53,5 +54,34 @@ const deleteTodo = (e) => {
 };
 // TIME: 30:00
 
+const todoDropdown = (e) => {
+  const todoFilter = todoList.childNodes;
+  console.log(todoFilter);
+  todoFilter.forEach((todo) => {
+    switch (
+      e.target.value // executes code based off of what the target value is
+    ) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        if (todo.classList.contains("complete")) {
+          // checks if the classlist contains 'completed'
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "uncompleted":
+        if (!todo.classList.contains("complete")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+    }
+  });
+};
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteTodo);
+dropDown.addEventListener("mouseover", todoDropdown);
