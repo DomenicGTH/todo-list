@@ -21,6 +21,7 @@ const addTodo = (e) => {
   makeli.innerText = todoinput.value; // pulls the text from the <input>
   makeli.classList.add("newtodo");
   div.appendChild(makeli); // appends makeli to div
+  localSave(todoinput.value); // runs the localSave function, stores the todoinput.value
   const buttonFinish = document.createElement("button"); // creates button
   buttonFinish.innerHTML = '<i class="fa-sharp fa-solid fa-circle-check"></i>'; // adds icon to button
   buttonFinish.classList.add("buttonDone"); // adds a class of buttonDone to the buttom
@@ -82,6 +83,23 @@ const todoDropdown = (e) => {
     }
   });
 };
+
+const localSave = (e) => {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    // localStorage is stored in the browser, even after it is closed
+    // getItem will get the 'todos' string
+    todos = []; // will make an empty array if it cannot find anything stored
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos")); // pulls the stored todos string
+  }
+  todos.push(e);
+  localStorage.setItem("todos", JSON.stringify(todos));
+  // setItem will set the 'todos' as the current stored item.
+  // 'todos' is the name of the file, JSON.stringify converts the javascript value into a JSON string.
+  // JSON string is a data format
+};
+
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteTodo);
 dropDown.addEventListener("mouseover", todoDropdown);
