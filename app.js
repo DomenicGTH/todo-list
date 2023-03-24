@@ -2,8 +2,8 @@ const todoinput = document.querySelector(".todo");
 const todoButton = document.querySelector(".todobtn");
 const todoList = document.querySelector(".list");
 
-todoButton.addEventListener("click", addTodo);
-
+// todoButton.addEventListener("click", addTodo); // calls the addTodo function
+// todoList.addEventListener("click", deleteTodo);
 // const addTodo = (e) => {
 //   e.preventDefault();
 //   const div = document.createElement("div"); // creates div
@@ -12,7 +12,7 @@ todoButton.addEventListener("click", addTodo);
 //   makeli.innerText = "Test";
 // };
 
-function addTodo(e) {
+const addTodo = (e) => {
   e.preventDefault();
   const div = document.createElement("div"); // creates div
   div.classList.add("todo"); // adds todo class to created div
@@ -26,11 +26,23 @@ function addTodo(e) {
   div.appendChild(buttonFinish); // appends button to div
 
   const buttonDelete = document.createElement("button");
-  buttonDelete.innerText = "testDelete";
-  buttonDelete.classList.add("buttonDelete");
+  buttonDelete.innerText = "Delete";
+  buttonDelete.classList.add("delete-btn");
   div.appendChild(buttonDelete); // ditto buttonFinish
   todoList.appendChild(div);
   todoinput.value = ""; // clear todoinput value
-}
+};
 
+const deleteTodo = (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  const deleteBtn = e.target; //
+  if (deleteBtn.classList[0] === "delete-btn") {
+    todoParent = deleteBtn.parentElement;
+    todoParent.remove();
+  }
+};
 // TIME: 30:00
+
+todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteTodo);
