@@ -109,7 +109,7 @@ form button:hover {
 }
 
 .delete-anim {
-    transform: translateY(8rem) rotateZ(20deg);
+    transform: translateX(20rem) rotate(10deg);
     opacity: 0; /* repostions element on the Y axis by 8rem and rotates by 20 deg */
 }
 
